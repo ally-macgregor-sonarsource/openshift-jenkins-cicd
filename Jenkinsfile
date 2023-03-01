@@ -1,9 +1,9 @@
-node
+pipeline
 {
   agent any
   stages{
     stage('Checkout SCM'){
-      checkout 'https://github.com/ally-macgregor-sonarsource/openshift-jenkins-cicd.git'
+      checkout scm
     }
     stage('SonarQube Analysis') {
       def mvn = tool 'Default Maven';
