@@ -2,6 +2,9 @@ pipeline
 {
   agent any
   stages{
+    stage('Checkout SCM'){
+      checkout scm
+    }
     stage('SonarQube Analysis') {
       def mvn = tool 'Default Maven';
       withSonarQubeEnv() {
