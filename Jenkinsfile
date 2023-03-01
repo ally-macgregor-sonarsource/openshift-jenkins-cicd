@@ -4,6 +4,7 @@ pipeline
   stages{
     stage('SonarQube Analysis') {
       steps {
+       echo "Experiment...."
         withSonarQubeEnv() {
           script{
             echo "Executing script for SQ analysis..."
