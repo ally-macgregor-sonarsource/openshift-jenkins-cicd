@@ -2,9 +2,6 @@ pipeline
 {
   agent any
   stages{
-    stage('Checkout SCM'){
-      git 'https://github.com/ally-macgregor-sonarsource/openshift-jenkins-cicd.git'
-    }
     stage('SonarQube Analysis') {
       steps {
         withSonarQubeEnv() {
