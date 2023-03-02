@@ -8,6 +8,14 @@ public class OpenshiftjenkinsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(OpenshiftjenkinsApplication.class, args);
+
+		try (PrintWriter writer = new PrintWriter(process.getOutputStream())) {
+        	String contents = file.contents();
+         	writer.write(new Gson().toJson(new MyObject(contents)));
+  		 	writer.flush();
+  		 	writer.close();
+		}
 	}
 
+  //TODO: Continue improvements here...
 }
