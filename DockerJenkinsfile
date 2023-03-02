@@ -27,7 +27,7 @@ pipeline
         timeout (time: 5, unit: 'MINUTES'){
           // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
           // true = set pipeline to UNSTABLE, false = don't
-          //If no timeout is defined, then the pipeline will pause forever as it waits.
+          //If no timeout is defined, then the pipeline will pause forever as it waits .
           waitForQualityGate abortPipeline: false
         }
       }  
