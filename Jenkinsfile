@@ -4,7 +4,6 @@ pipeline
   stages{
     stage('SonarQube Analysis') {
       steps {
-       echo "Experiment...."
         withSonarQubeEnv(installationName: 'SonarQube Localhost') {
           script{
             echo "Executing script for SQ analysis..."
@@ -12,6 +11,16 @@ pipeline
           }
         }
       }
+    }
+    stage('Quality Gate')
+    {
+      steps{
+        timeout(time: 5, unit: 'MINUTES'){
+          // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
+          // true = set pipeline to UNSTABLE, false = don't
+          waitForQualityGate abortPipeline: false
+        }
+      }  
     }
   }
 } 
