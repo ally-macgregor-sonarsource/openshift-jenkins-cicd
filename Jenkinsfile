@@ -7,7 +7,7 @@ pipeline
         withSonarQubeEnv(installationName: 'SonarQube Localhost') {
           script{
             echo "Executing script for SQ analysis..."
-            bat "sonar-scanner -Dsonar.projectKey=ally-macgregor-sonarsource_openshift-jenkins-cicd_AYZzqjfaTohGSjsIfpkZ"
+            bat "C:/util/apache-maven-3.8.7/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=ally-macgregor-sonarsource_openshift-jenkins-cicd_AYZzqjfaTohGSjsIfpkZ"
           }
         }
       }
