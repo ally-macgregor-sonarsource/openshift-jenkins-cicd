@@ -1,15 +1,6 @@
 pipeline
 {
-  agent{
-    //Implement the scanner via build agent in docker
-    docker{
-      image 'sonarsource/sonar-scanner-cli:latest'
-      reuseNode true
-    }
-  }
-  options{
-    skipStagesAfterUnstable()
-  }
+  agent any
   stages{
     stage('SonarQube Analysis') {
       steps {
